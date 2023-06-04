@@ -1,0 +1,18 @@
+/* CSS class naming format */
+/* HomePage hp-{name} */
+.hp-event-img {
+    height: 15rem;
+    object-fit: cover;
+}
+
+.hp-note-img {
+    height: 25rem;
+    object-fit: cover;
+}
+
+
+/* EventUp eu-{name} */
+
+/* NoteHub nh-{name} */
+
+/* FlashCard fc-{name} */
