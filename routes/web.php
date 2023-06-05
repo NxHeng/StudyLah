@@ -33,9 +33,15 @@ Route::post('/event', [App\Http\Controllers\EventController::class, 'store'])->n
 Route::delete('/event/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
 Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('events.update');
 
-
 //NoteHub
 Route::get('/note', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
+Route::get('/note/create', [App\Http\Controllers\NoteController::class, 'create'])->name('notes.create');
+Route::get('/note/{id}', [App\Http\Controllers\NoteController::class, 'show'])->name('notes.show');
+Route::get('/note/{id}/edit', [App\Http\Controllers\NoteController::class, 'edit'])->name('notes.edit');
+
+Route::post('/note', [App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
+Route::delete('/note/{id}', [App\Http\Controllers\NoteController::class, 'destroy'])->name('notes.destroy');
+Route::put('/note/{id}', [App\Http\Controllers\NoteController::class, 'update'])->name('notes.update');
 
 //FlashCard (Decks)
 Route::get('/deck', [App\Http\Controllers\DeckController::class, 'index'])->name('decks.index');
