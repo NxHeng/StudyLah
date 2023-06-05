@@ -7,7 +7,7 @@
         </div>
         <div id="carouselEvent" class="carousel carousel-dark slide">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active hp-zoom">
                     <div class="cards-wrapper d-flex justify-content-center">
                         <div class="card m-2 w-50">
                             <img src="/images/dummy-img.jpg" class="card-img-top hp-event-img img-fluid">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 @for ($i = 0; $i < 2; $i++)
-                    <div class="carousel-item">
+                    <div class="carousel-item hp-zoom">
                         <div class="cards-wrapper d-flex justify-content-center">
                             <div class="card m-2 w-50">
                                 <img src="/images/dummy-img.jpg" class="card-img-top hp-event-img img-fluid">
@@ -58,12 +58,11 @@
             @for ($i = 0; $i < 2; $i++)
                 <div class="row d-flex justify-content-center">
                     @for ($j = 0; $j < 4; $j++)
-                        <div class="col-12 col-xl-3 col-lg-6 col-md-6 col-sm-12 ">
-                            <div class="card mb-3 hp-card-height">
+                        <div class="col-12 col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                            <div class="card mb-3 hp-card-height shadow hp-zoom">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <img src="/images/dummy-img.jpg"
-                                            class="rounded-start rounded-end img-fluid hp-note-img">
+                                        <img src="/images/dummy-img.jpg" class="rounded-start img-fluid hp-note-img">
                                     </div>
                                     <div class="col-md-7">
                                         <div class="card-body">
@@ -74,6 +73,11 @@
                                             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
                                                     ago</small>
                                             </p>
+                                            <div class="d-flex justify-content-start">
+                                                <button class="button rounded border border-3 hp-note-btn">
+                                                    Download
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +95,7 @@
             </div>
             @for ($i = 0; $i < 3; $i++)
                 <button
-                    class="hp-deck d-flex justify-content-center border border-2 rounded p-3 m-2 bg-body-secondary w-100"
+                    class="hp-deck d-flex justify-content-center border border-2 rounded p-3 m-2 bg-body-secondary w-100 shadow-sm hp-zoom"
                     href="#">
                     <div class="display-6 me-5">
                         Deck Title {{ $i + 1 }}

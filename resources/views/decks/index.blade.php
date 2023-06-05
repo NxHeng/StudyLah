@@ -2,7 +2,8 @@
 
 @section('content')
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
+    {{-- Decks --}}
     <div class="text-center">
-        NoteHub
+        FlashCards (Decks)
     </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User as ModelsUser;
 
 class ProfileController extends Controller
 {
@@ -23,6 +24,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        return view('profile.index');
+    }
+
+    public function show($id)
+    {
+        $profile = ModelsUser::find($id);
+
+        return view('profile.show', ['profileDetails' => $profile]);
     }
 }
