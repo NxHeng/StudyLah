@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('documents', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('doc_title');
-            $table->string('doc_caption');
-            $table->string('doc_topic');
-            $table->string('doc_file');
+            $table->string('note_title');
+            $table->text('note_caption');
+            $table->string('note_topic');
+            // $table->string('doc_file');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('documents');
+        Schema::dropIfExists('notes');
     }
 };
