@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CardController extends Controller
+class DeckController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,6 @@ class CardController extends Controller
      */
     public function index()
     {
-        return view('cards.index');
+        return view('decks.index');
     }
 }

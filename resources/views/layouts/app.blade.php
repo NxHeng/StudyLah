@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="content">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -39,13 +39,13 @@
                             <a class="nav-link" href="{{ route('home') }}">HomePage</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('event') }}">EventUp</a>
+                            <a class="nav-link" href="{{ route('events.index') }}">EventUp</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('note') }}">NoteHub</a>
+                            <a class="nav-link" href="{{ route('notes.index') }}">NoteHub</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('card') }}">FlashCards</a>
+                            <a class="nav-link" href="{{ route('decks.index') }}">FlashCards</a>
                         </li>
                     </ul>
 
@@ -82,7 +82,8 @@
                                         @csrf
                                     </form>
 
-                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('profile.show', ['id' => Auth::user()->id]) }}">Profile</a>
                                 </div>
                             </li>
                         @endguest
@@ -96,10 +97,10 @@
         </main>
     </div>
 
-    <footer id="footer" class="p-5 bg-body-secondary text-dark align-items-center">
+    <footer id="footer" class="footer p-5 bg-body-secondary text-dark align-items-center footer align-bottom">
         <div class="row">
             <div class="col-lg-4 col-sm-6 pt-2">
-                <a class="title h2" href="index.html" style="text-decoration: none">StudyLah</a>
+                <a class="title h2" href="{{ url('/') }}" style="text-decoration: none">StudyLah</a>
             </div>
             <div class="col-lg-8 col-sm-6 pt-md-2 text-sm-start text-lg-end">
                 Copyright © 2023 StudyLah - All Rights Reserved

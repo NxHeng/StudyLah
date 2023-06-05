@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event as ModelsEvent;
+use Illuminate\Console\Scheduling\Event as SchedulingEvent;
 
 class EventController extends Controller
 {
@@ -23,6 +25,65 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('event');
+        $events = ModelsEvent::all();
+        $events_own = ModelsEvent::where('user_id', auth()->user()->id)->get();
+
+        return view(
+            'events.index',
+            [
+                'events' => $events,
+                'events_own' => $events_own
+            ]
+        );
+    }
+
+    public function show($id)
+    {
+        $eventDetails = ModelsEvent::findOrFail($id);
+        return view('events.show', ['eventDetails' => $eventDetails]);
+    }
+
+    public function edit($id)
+    {
+        $eventDetails = ModelsEvent::findOrFail($id);
+        return view('events.edit', ['eventDetails' => $eventDetails]);
+    }
+
+    public function create()
+    {
+        return view('events.create');
+    }
+
+    public function store()
+    {
+        $event = new ModelsEvent();
+
+        $event->event_title = request('title');
+        $event->event_text = request('descr');
+        $event->user_id = auth()->user()->id;
+
+        $event->save();
+
+        return redirect('event');
+    }
+
+    public function destroy($id)
+    {
+        $event = ModelsEvent::findOrFail($id);
+        $event->delete();
+
+        return redirect('event');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $event = ModelsEvent::findOrFail($id);
+
+        $event->event_title = $request->input('title');
+        $event->event_text = $request->input('descr');
+
+        $event->save();
+
+        return redirect('event');
     }
 }
