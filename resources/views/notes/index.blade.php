@@ -20,7 +20,7 @@
                             </div>
                             <div class="text-center mt-2">
                                 <button class="rounded">
-                                    <a href="{{ route('notes.show', ['id' => $note->id]) }}"> Download </a>
+                                    <a href="{{ route('notes.preview', ['id' => $note->id]) }}"> View </a>
                                 </button>
                             </div>
                         </div>

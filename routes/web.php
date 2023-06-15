@@ -39,6 +39,7 @@ Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'
 Route::get('/note', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
 Route::get('/note/create', [App\Http\Controllers\NoteController::class, 'create'])->name('notes.create');
 Route::get('/note/{id}', [App\Http\Controllers\NoteController::class, 'show'])->name('notes.show');
+Route::get('/note/preview/{id}', [App\Http\Controllers\NoteController::class, 'preview'])->name('notes.preview');
 Route::get('/note/{id}/edit', [App\Http\Controllers\NoteController::class, 'edit'])->name('notes.edit');
 
 Route::post('/note', [App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
