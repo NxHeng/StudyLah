@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('note_title');
             $table->text('note_caption');
             $table->string('note_topic');
-            // $table->string('doc_file');
+            $table->string('note_file');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });

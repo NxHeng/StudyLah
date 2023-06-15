@@ -50,6 +50,9 @@ body {
   
 
 /* EventUp eu-{name} */
+.eu-event-img {
+  height: 20rem;
+}
 
 /* NoteHub nh-{name} */
 

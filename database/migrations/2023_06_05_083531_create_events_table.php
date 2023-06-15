@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('event_title');
             $table->text('event_text');
-            // $table->string('event_pic');
+            $table->string('event_image');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });

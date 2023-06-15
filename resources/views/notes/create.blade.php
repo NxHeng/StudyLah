@@ -7,7 +7,7 @@
     </div>
 
     <div class="container-sm text-center">
-        <form action="/note" method="POST">
+        <form action="/note" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group m-2">
                 <label for="title">Note Title: </label>
@@ -20,6 +20,10 @@
             <div class="form-group m-2">
                 <label for="caption">Note Caption: </label>
                 <textarea class="form-control" type="text" id="caption" name="caption"></textarea>
+            </div>
+            <div class="form-group m-2">
+                <label for="document">Document: </label>
+                <input class="form-control" type="file" id="document" name="document"input>
             </div>
             <input type="submit" value="Submit">
         </form>
