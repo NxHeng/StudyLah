@@ -42,6 +42,12 @@ class NoteController extends Controller
         return view('notes.show', ['noteDetails' => $noteDetails]);
     }
 
+    public function preview($id)
+    {
+        $noteDetails = ModelsNote::findOrFail($id);
+        return view('notes.preview', ['noteDetails' => $noteDetails]);
+    }
+
     public function edit($id)
     {
         $noteDetails = ModelsNote::findOrFail($id);
