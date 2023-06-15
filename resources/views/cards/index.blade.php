@@ -6,7 +6,13 @@
     <div class="text-center h1">
         {{ $deck->deck_name }}
     </div>
-
+    <div class="text-center">
+        <a href="{{ route('cards.study', ['id' => $deck->id]) }}">
+            <button>
+                Study
+            </button>
+        </a>
+    </div>
     <div class="container-sm">
         @foreach ($cards as $card)
             <div class="d-flex justify-content-between">

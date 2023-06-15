@@ -57,6 +57,7 @@ Route::delete('/deck/{id}', [App\Http\Controllers\DeckController::class, 'destro
 //FlashCard (Cards)
 Route::get('/deck/{id}/card', [App\Http\Controllers\CardController::class, 'index'])->name('cards.index');
 Route::get('/deck/{id}/card/create', [App\Http\Controllers\CardController::class, 'create'])->name('cards.create');
+Route::get('/deck/{id}/card/study', [App\Http\Controllers\CardController::class, 'study'])->name('cards.study');
 
 Route::post('/deck/{id}/card', [App\Http\Controllers\CardController::class, 'store'])->name('cards.store');
 Route::delete('/deck/{id}/card/{card_id}', [App\Http\Controllers\CardController::class, 'destroy'])->name('cards.destroy');
