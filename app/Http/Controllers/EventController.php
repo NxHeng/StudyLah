@@ -54,13 +54,21 @@ class EventController extends Controller
         return view('events.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $event = new ModelsEvent();
 
         $event->event_title = request('title');
         $event->event_text = request('descr');
         $event->user_id = auth()->user()->id;
+
+        if ($request->hasFile('image')) {
+            $destinationPath = 'public/images/events';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $request->file('image')->storeAs($destinationPath, $image_name);
+            $event->event_image = $image_name;
+        }
 
         $event->save();
 
@@ -81,6 +89,13 @@ class EventController extends Controller
 
         $event->event_title = $request->input('title');
         $event->event_text = $request->input('descr');
+        if ($request->hasFile('image')) {
+            $destinationPath = 'public/images/events';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $request->file('image')->storeAs($destinationPath, $image_name);
+            $event->event_image = $image_name;
+        }
 
         $event->save();
 

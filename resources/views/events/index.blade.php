@@ -18,6 +18,10 @@
                             <div class="text-center">
                                 Description: {{ $event->event_text }}
                             </div>
+                            <div class="text-center m-2">
+                                <img class="img-thumbnail eu-event-img"
+                                    src="{{ asset('/storage/images/events/' . $event->event_image) }}" alt="event image">
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -40,7 +44,11 @@
                             <div class="text-center">
                                 Description: {{ $event->event_text }}
                             </div>
-                            <div>
+                            <div class="text-center m-2">
+                                <img class="img-thumbnail eu-event-img"
+                                    src="{{ asset('/storage/images/events/' . $event->event_image) }}" alt="event image">
+                            </div>
+                            <div class="mt-2">
                                 <button class="rounded">
                                     <a href="{{ route('events.show', ['id' => $event->id]) }}"> Show </a>
                                 </button>
