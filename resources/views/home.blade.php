@@ -62,8 +62,10 @@
                                         {{-- <p class="card-text"><small class="text-body-secondary">Last updated {{}}</small> --}}
                                         </p>
                                         <div class="d-flex">
-                                            <button class="button rounded border border-3 hp-note-btn">
-                                                Download
+                                            <button class="rounded">
+                                                <a
+                                                    href="{{ route('notes.download', ['filename' => $notes[$j]->note_file]) }}">
+                                                    Download </a>
                                             </button>
                                         </div>
                                     </div>
