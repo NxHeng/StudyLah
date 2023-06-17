@@ -9,4 +9,4 @@ var cards = document.querySelectorAll('.fc-study-card');
     });
 });
 
-//others
+//welcome page
