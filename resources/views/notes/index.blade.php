@@ -18,6 +18,10 @@
                             <div class="text-center">
                                 {{ $note->note_caption }}
                             </div>
+                            <div class="text-center m-2">
+                                <img class="img-thumbnail eu-event-img"
+                                    src="{{ asset('/storage/images/notes/' . $note->note_img) }}" alt="event image">
+                            </div>
                             <div class="text-center mt-2">
                                 <button class="rounded">
                                     <a href="{{ route('notes.preview', ['id' => $note->id]) }}"> View </a>
@@ -45,11 +49,10 @@
                             <div class="text-center">
                                 {{ $note->note_caption }}
                             </div>
-                            {{-- <div>
-                                <object data="{{ asset('/storage/documents/' . $note->note_file) }}" type="application/pdf"
-                                    width="100%" height="600px"> <a
-                                        href="{{ asset('/storage/documents/' . $note->note_file) }}">test.pdf</a></object>
-                            </div> --}}
+                            <div class="text-center m-2">
+                                <img class="img-thumbnail eu-event-img"
+                                    src="{{ asset('/storage/images/notes/' . $note->note_img) }}" alt="event image">
+                            </div>
                             <div class="text-center mt-2">
                                 <button class="rounded">
                                     <a href="{{ route('notes.show', ['id' => $note->id]) }}"> Show </a>

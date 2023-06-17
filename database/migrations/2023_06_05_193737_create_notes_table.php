@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('note_caption');
             $table->string('note_topic');
             $table->string('note_file');
+            $table->string('note_img')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
