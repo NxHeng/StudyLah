@@ -41,6 +41,7 @@ Route::get('/note/create', [App\Http\Controllers\NoteController::class, 'create'
 Route::get('/note/{id}', [App\Http\Controllers\NoteController::class, 'show'])->name('notes.show');
 Route::get('/note/preview/{id}', [App\Http\Controllers\NoteController::class, 'preview'])->name('notes.preview');
 Route::get('/note/{id}/edit', [App\Http\Controllers\NoteController::class, 'edit'])->name('notes.edit');
+Route::get('/note/download/{filename}', [App\Http\Controllers\NoteController::class, 'download'])->name('notes.download');
 
 Route::post('/note', [App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
 Route::delete('/note/{id}', [App\Http\Controllers\NoteController::class, 'destroy'])->name('notes.destroy');

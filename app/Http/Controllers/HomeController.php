@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Deck as ModelsDeck;
+use App\Models\Event as ModelsEvent;
+use App\Models\Note as ModelsNote;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $decks_own = ModelsDeck::where('user_id', auth()->user()->id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        $events = ModelsEvent::latest()->take(5)->get();
+        $notes = ModelsNote::latest()->take(8)->get();
+
+        return view(
+            'home',
+            [
+                'events' => $events,
+                'notes' => $notes,
+                'decks_own' => $decks_own
+            ]
+        );
     }
 }
