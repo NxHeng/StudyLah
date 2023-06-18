@@ -3,14 +3,14 @@
 @section('content')
     <section>
         <div class="h1 text-center">
-            EventUp
+            What's Going On?
         </div>
         <div id="carouselEvent" class="carousel carousel-dark slide">
             <div class="carousel-inner">
                 @foreach ($events as $key => $event)
                     <div class="carousel-item hp-zoom @if ($key == 0) active @endif">
                         <div class="cards-wrapper d-flex justify-content-center">
-                            <div class="card m-2 w-50">
+                            <div class="card m-2 w-50 shadow-sm">
                                 <img src="{{ asset('/storage/images/events/' . $event->event_image) }}"
                                     class="card-img-top hp-event-img img-fluid">
                                 <div class="card-body">
@@ -43,7 +43,7 @@
     <section>
         <div class="container-sm mt-5">
             <div class="h1 text-center mb-3">
-                NoteHub
+                Sharing is Caring
             </div>
             {{-- @for ($i = 0; $i < 2; $i++) --}}
             <div class="row d-flex justify-content-center">
@@ -81,11 +81,11 @@
     <section>
         <div class="container-sm mt-5">
             <div class="h1 text-center mb-3">
-                FlashCards
+                Study Your Cards
             </div>
             @foreach ($decks_own as $decks)
-                <div class="d-flex justify-content-between">
-                    <div class="w-100">
+                <div class="d-flex justify-content-center">
+                    <div class="w-75">
                         <a href="{{ route('cards.index', ['id' => $decks->id]) }}" style="text-decoration: none;">
                             <button
                                 class="hp-deck d-flex justify-content-center border border-2 rounded p-3 m-2 bg-body-secondary w-100 shadow-sm hp-zoom">

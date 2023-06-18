@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('major')->nullable();
             $table->string('bio')->nullable();
             $table->string('pfp')->nullable();
+            $table->unsignedBigInteger('study_duration')->default(0);
+            $table->timestamp('last_login_at')->nullable();
         });
     }
 
