@@ -43,4 +43,40 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="studyDuration" value="{{ $user->study_duration }}">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const start = new Date().getTime();
+            const studyDurationElement = document.getElementById('studyDuration');
+            let totalDuration = parseFloat(studyDurationElement.textContent) || 0;
+
+            window.addEventListener("beforeunload", () => {
+                const end = new Date().getTime();
+                const currentDuration = (end - start) / 1000;
+                totalDuration += currentDuration;
+
+                // Send AJAX request to update the total study duration in the database
+                const url = '/duration';
+                const data = {
+                    duration: totalDuration
+                };
+
+                fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Add Laravel CSRF token
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => {
+                        // Handle the response if needed
+                    })
+                    .catch(error => {
+                        // Handle errors if any
+                    });
+            });
+        });
+    </script>
 @endsection

@@ -69,3 +69,8 @@ Route::get('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'sho
 Route::get('/profile/{id}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 
 Route::put('/profile/{id}', [App\Http\Controllers\profileController::class, 'update'])->name('profile.update');
+Route::post('/duration', [App\Http\Controllers\profileController::class, 'updateDuration'])->name('study.duration');
+
+
+//Stats
+Route::get('/stats', [App\Http\Controllers\StatsController::class, 'index'])->name('stats.index');

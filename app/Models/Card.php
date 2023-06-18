@@ -13,4 +13,9 @@ class Card extends Model
     {
         return $this->belongsTo(Deck::class);
     }
+
+    public function deck()
+    {
+        return $this->belongsTo(Deck::class);
+    }
 }

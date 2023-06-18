@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="images/graduate-hat.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -46,6 +47,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('decks.index') }}">FlashCards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('stats.index') }}">Stats</a>
                         </li>
                     </ul>
 
