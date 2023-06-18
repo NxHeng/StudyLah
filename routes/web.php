@@ -39,6 +39,7 @@ Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'
 Route::get('/note', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
 Route::get('/note/create', [App\Http\Controllers\NoteController::class, 'create'])->name('notes.create');
 Route::get('/note/{id}', [App\Http\Controllers\NoteController::class, 'show'])->name('notes.show');
+Route::get('/note/preview/{id}', [App\Http\Controllers\NoteController::class, 'preview'])->name('notes.preview');
 Route::get('/note/{id}/edit', [App\Http\Controllers\NoteController::class, 'edit'])->name('notes.edit');
 
 Route::post('/note', [App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
@@ -56,6 +57,7 @@ Route::delete('/deck/{id}', [App\Http\Controllers\DeckController::class, 'destro
 //FlashCard (Cards)
 Route::get('/deck/{id}/card', [App\Http\Controllers\CardController::class, 'index'])->name('cards.index');
 Route::get('/deck/{id}/card/create', [App\Http\Controllers\CardController::class, 'create'])->name('cards.create');
+Route::get('/deck/{id}/card/study', [App\Http\Controllers\CardController::class, 'study'])->name('cards.study');
 
 Route::post('/deck/{id}/card', [App\Http\Controllers\CardController::class, 'store'])->name('cards.store');
 Route::delete('/deck/{id}/card/{card_id}', [App\Http\Controllers\CardController::class, 'destroy'])->name('cards.destroy');

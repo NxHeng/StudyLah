@@ -19,17 +19,10 @@
             <object data="{{ asset('/storage/documents/' . $noteDetails->note_file) }}" type="application/pdf" width="100%"
                 height="600px"> <a href="{{ asset('/storage/documents/' . $noteDetails->note_file) }}">test.pdf</a></object>
         </div>
-        <div>
-            <button class="button rounded">
-                <a href="{{ route('notes.edit', ['id' => $noteDetails->id]) }}"> Edit </a>
+        <div class="text-center mt-2">
+            <button class="rounded">
+                <a href=""> download </a>
             </button>
-        </div>
-        <div class="m-2">
-            <form action="/note/{{ $noteDetails->id }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input class="button rounded" type="submit" value="Delete Note">
-            </form>
         </div>
     </div>
 @endsection

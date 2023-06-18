@@ -25,11 +25,25 @@ class CardController extends Controller
      */
     public function index($id)
     {
-        $cards = ModelsCard::where('deck_id', $id)->get();
         $deck = ModelsDeck::findOrFail($id);
+        $cards = ModelsCard::where('deck_id', $id)->get();
 
         return view(
             'cards.index',
+            [
+                'deck' => $deck,
+                'cards' => $cards
+            ]
+        );
+    }
+
+    public function study($id)
+    {
+        $deck = ModelsDeck::findOrFail($id);
+        $cards = ModelsCard::where('deck_id', $id)->get();
+
+        return view(
+            'cards.study',
             [
                 'deck' => $deck,
                 'cards' => $cards

@@ -42,6 +42,12 @@ class NoteController extends Controller
         return view('notes.show', ['noteDetails' => $noteDetails]);
     }
 
+    public function preview($id)
+    {
+        $noteDetails = ModelsNote::findOrFail($id);
+        return view('notes.preview', ['noteDetails' => $noteDetails]);
+    }
+
     public function edit($id)
     {
         $noteDetails = ModelsNote::findOrFail($id);
@@ -53,7 +59,7 @@ class NoteController extends Controller
         return view('notes.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $note = new ModelsNote();
 
@@ -61,6 +67,14 @@ class NoteController extends Controller
         $note->note_caption = request('caption');
         $note->note_topic = request('topic');
         $note->user_id = auth()->user()->id;
+
+        if ($request->hasFile('document')) {
+            $destinationPath = 'public/documents';
+            $doc = $request->file('document');
+            $doc_name = $doc->getClientOriginalName();
+            $request->file('document')->storeAs($destinationPath, $doc_name);
+            $note->note_file = $doc_name;
+        }
 
         $note->save();
 
@@ -82,6 +96,14 @@ class NoteController extends Controller
         $note->note_title = $request->input('title');
         $note->note_caption = $request->input('caption');
         $note->note_topic = $request->input('topic');
+
+        if ($request->hasFile('document')) {
+            $destinationPath = 'public/documents';
+            $doc = $request->file('document');
+            $doc_name = $doc->getClientOriginalName();
+            $request->file('document')->storeAs($destinationPath, $doc_name);
+            $note->note_file = $doc_name;
+        }
 
         $note->save();
 

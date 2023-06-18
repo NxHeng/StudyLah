@@ -18,6 +18,11 @@
                             <div class="text-center">
                                 {{ $note->note_caption }}
                             </div>
+                            <div class="text-center mt-2">
+                                <button class="rounded">
+                                    <a href="{{ route('notes.preview', ['id' => $note->id]) }}"> View </a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -40,7 +45,12 @@
                             <div class="text-center">
                                 {{ $note->note_caption }}
                             </div>
-                            <div class="text-center">
+                            {{-- <div>
+                                <object data="{{ asset('/storage/documents/' . $note->note_file) }}" type="application/pdf"
+                                    width="100%" height="600px"> <a
+                                        href="{{ asset('/storage/documents/' . $note->note_file) }}">test.pdf</a></object>
+                            </div> --}}
+                            <div class="text-center mt-2">
                                 <button class="rounded">
                                     <a href="{{ route('notes.show', ['id' => $note->id]) }}"> Show </a>
                                 </button>

@@ -15,6 +15,13 @@
         <div class="h5 p-3 border rounded">
             {{ $eventDetails->event_text }}
         </div>
+        <div class="h2">
+            Image
+        </div>
+        <div class="text-center m-2">
+            <img class="img-thumbnail w-50" src="{{ asset('/storage/images/events/' . $eventDetails->event_image) }}"
+                alt="event image">
+        </div>
         <div>
             <button class="button rounded">
                 <a href="{{ route('events.edit', ['id' => $eventDetails->id]) }}"> Edit </a>
