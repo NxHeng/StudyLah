@@ -44,7 +44,7 @@
         </div>
     </div>
     <input type="hidden" id="studyDuration" value="{{ $user->study_duration }}">
-
+<!--  -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const start = new Date().getTime();
