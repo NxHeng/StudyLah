@@ -99,7 +99,7 @@
             <div class="m-4">
                 <div class="container-sm border rounded-5 d-flex bg-body-secondary shadow hp-zoom w-75">
                     <div class="p-3">
-                        <img src="images/nxh.png" class="wp-profile-pic img-thumbnail" alt="image">
+                        <img src="images/shirley1.png" class="wp-profile-pic img-thumbnail" alt="image">
                     </div>
                     <div class="d-flex justify-content-between w-100 my-auto">
                         <div class="my-auto">

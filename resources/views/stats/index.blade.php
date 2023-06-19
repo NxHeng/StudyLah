@@ -118,7 +118,7 @@
             //note
             generateChart('noteCountChart', {!! $noteLabels !!}, {!! $noteCounts !!}, colors, 'pie');
             //login
-            generateChart('loginChart', {!! json_encode($dayLabels) !!}, {!! json_encode($dayData) !!}, '#009688', 'bar');
+            generateChart('loginChart', {!! json_encode($dayLabels) !!}, {!! json_encode($dayData) !!}, '#77B5B3', 'bar');
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
