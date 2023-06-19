@@ -2,13 +2,10 @@
 
 @section('content')
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
-
-    <div class="container-sm text-left ">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-left">Edit Your Event</h1>
-            </div>
-        </div>
+    <div class="text-center h1">
+        <b>Edit Event</b>
+    </div>
+    <div class="container-sm text-left border rounded p-3 shadow-sm">
         <form action="{{ route('events.update', ['id' => $eventDetails->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -17,19 +14,42 @@
                 <input class="form-control" type="text" id="title" name="title"
                     value="{{ $eventDetails->event_title }}">
             </div>
-            <label for="descr" class="col-sm-2 mt-3 col-form-label">Event Description:</label>
-            <div class="col-sm-10 mt-3">
-                <textarea class="form-control" type="text" id="descr" name="descr">{{ $eventDetails->event_text }}</textarea>
-            </div> <br>
-            <label for="image" class="col-sm-2 mt-3 col-form-label text-left">Event Image:</label>
-            <div class="col-sm-10 mt-3">
-                <input class="form-control" type="file" id="image" name="image"><br>
+            <div class="form-group m-2">
+                <label class="h2" for="descr">Description: </label>
+                <textarea class="form-control" id="descr" name="descr" oninput="adjustTextareaHeight(this)">{{ $eventDetails->event_text }}</textarea>
             </div>
-            <div class="text-center mt-3">
-                <input type="submit" value="Update Event" class="btn btn-primary" style="background-color: #77b5b3;">
+
+            <script>
+                function adjustTextareaHeight(textarea) {
+                    textarea.style.height = 'auto'; // Reset the height to auto
+                    textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to match the scroll height
+                }
+
+                // Adjust the textarea height on page load
+                window.addEventListener('DOMContentLoaded', function() {
+                    const textarea = document.getElementById('descr');
+                    adjustTextareaHeight(textarea);
+                });
+            </script>
+
+            <div class="form-group m-2">
+                <label for="date" class="h2">Date: </label>
+                <input class="form-control" type="date" id="date" name="date" value="{{ $eventDetails->date }}">
             </div>
-            <div class="col-sm-10 mt-2">
+            <div class="form-group m-2">
+                <label for="link" class="h2">Link: </label>
+                <input class="form-control" type="text" id="link" name="link" value="{{ $eventDetails->link }}">
             </div>
+            <div class="form-group m-2">
+                <label for="image" class="h2">Image: </label>
+                <input class="form-control" type="file" id="image" name="image"input>
+            </div>
+            <div style="text-align: center; ">
+                <br>
+                <input class="rounded button2" type="submit" value="Save">
+            </div>
+            <br>
+
         </form>
     </div>
 @endsection
