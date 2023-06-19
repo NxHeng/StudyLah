@@ -66,7 +66,7 @@
                 @endforeach
             </div>
             <div class="m-3 text-center">
-                {!! $notes->links('pagination::bootstrap-4') !!}
+                {!! $notes_own->links('pagination::bootstrap-4') !!}
             </div>
         </div>
 
