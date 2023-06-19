@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Card as ModelsCard;
 use App\Models\Deck as ModelsDeck;
+use App\Models\User as ModelsUser;
 
 class CardController extends Controller
 {
@@ -41,12 +42,14 @@ class CardController extends Controller
     {
         $deck = ModelsDeck::findOrFail($id);
         $cards = ModelsCard::where('deck_id', $id)->get();
+        $user = ModelsUser::findOrFail(auth()->user()->id);
 
         return view(
             'cards.study',
             [
                 'deck' => $deck,
-                'cards' => $cards
+                'cards' => $cards,
+                'user' => $user
             ]
         );
     }
