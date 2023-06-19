@@ -60,6 +60,8 @@ class EventController extends Controller
 
         $event->event_title = request('title');
         $event->event_text = request('descr');
+        $event->date = request('date');
+        $event->link = request('link');
         $event->user_id = auth()->user()->id;
 
         if ($request->hasFile('image')) {

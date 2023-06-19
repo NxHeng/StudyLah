@@ -20,6 +20,14 @@
                 <textarea class="form-control" type="text" id="descr" name="descr">{{ $eventDetails->event_text }}</textarea>
             </div>
             <div class="form-group m-2">
+                <label for="date">Date: </label>
+                <input class="form-control" type="date" id="date" name="date" value="{{ $eventDetails->date }}">
+            </div>
+            <div class="form-group m-2">
+                <label for="link">Link: </label>
+                <input class="form-control" type="text" id="link" name="link" value="{{ $eventDetails->link }}">
+            </div>
+            <div class="form-group m-2">
                 <label for="image">Image: </label>
                 <input class="form-control" type="file" id="image" name="image"input>
             </div>

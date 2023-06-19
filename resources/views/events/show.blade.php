@@ -4,19 +4,31 @@
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
     <div class="container-sm text-center">
         <div class="h2">
-            Title
+            Event Title
         </div>
         <div class="h5 p-3 border rounded">
             {{ $eventDetails->event_title }}
         </div>
         <div class="h2">
-            Description
+            Event Description
         </div>
         <div class="h5 p-3 border rounded">
             {{ $eventDetails->event_text }}
         </div>
         <div class="h2">
-            Image
+            Event Date
+        </div>
+        <div class="h5 p-3 border rounded">
+            {{ $eventDetails->date }}
+        </div>
+        <div class="h2">
+            Event Link
+        </div>
+        <div class="h5 p-3 border rounded">
+            <a href="{{ $eventDetails->link }}">{{ $eventDetails->link }}</a> <br>
+        </div>
+        <div class="h2">
+            Event Poster or Related Image
         </div>
         <div class="text-center m-2">
             <img class="img-thumbnail w-50" src="{{ asset('/storage/images/events/' . $eventDetails->event_image) }}"
