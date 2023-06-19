@@ -78,14 +78,15 @@ body {
 
 /* This container is needed to position the front and back side */
 .scene {
-  display: inline-flex;
+ position: relative;
   width:100%;
   height: 100%; 
   width: 200px;
   height: 260px;
 /*   border: 1px solid #CCC; */
-  margin: 40px 0;
-  perspective: 600px;
+  text-align: center;
+  transition: 0.8s;
+  transform-style: preserve-3d;
 }
 .scene--card{
   position:relative; 
@@ -107,7 +108,11 @@ body {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
-.card__face {
+.fc-flip-card .fc-card-inner{
+  transform: rotateY(180deg);
+}
+
+.card_front .card_back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -120,17 +125,14 @@ body {
   backface-visibility: hidden;
 }
 
-.card__front {
+.card_front {
   background: crimson;
   border-width: 3px;
-  transform: rotateY(0deg);
-  z-index: 2;
 }
 
-.card__back {
+.card_back {
   background: slateblue;
   transform: rotateY(180deg);
-  z-index: 1;
 }
 
 /* Welcome Page */
