@@ -26,13 +26,13 @@
                 @endforeach
             </div>
 
-            <button class="carousel-control-prev bg-body-secondary rounded" type="button" data-bs-target="#carouselEvent"
+            <button class="carousel-control-prev bg-color rounded" type="button" data-bs-target="#carouselEvent"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
 
-            <button class="carousel-control-next bg-body-secondary rounded" type="button" data-bs-target="#carouselEvent"
+            <button class="carousel-control-next bg-color rounded" type="button" data-bs-target="#carouselEvent"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
