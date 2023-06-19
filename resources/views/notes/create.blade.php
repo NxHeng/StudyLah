@@ -9,7 +9,7 @@
             </div>
         </div>
 
-           <form action="/note" method="POST" enctype="multipart/form-data">
+        <form action="/note" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group m-2">
                 <label for="title">Note Title: </label>
@@ -32,8 +32,8 @@
                 <input class="form-control" type="file" id="image" name="image" input>
             </div>
             <div class="text-center mt-3">
-    <input type="submit" value="Create Note" class="btn btn-primary" style="background-color: #77b5b3;">
-</div>
+                <input type="submit" value="Create Note" class="btn btn-primary" style="background-color: #77b5b3;">
+            </div>
         </form>
     </div>
 @endsection
