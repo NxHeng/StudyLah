@@ -48,7 +48,7 @@
                                 <br>
                             </div>
                             <div class="text-center">
-                                Event Date :<br>  
+                                Event Date :<br>
                                 <b>{{ $event->date }}</b>
                             </div>
                             <div class="text-center">
