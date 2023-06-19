@@ -10,11 +10,11 @@
             {{ $noteDetails->note_caption }}
         </div>
         <div>
-            <object class="rounded-3" data="{{ asset('/storage/documents/' . $noteDetails->note_file) }}"
+            <object class="rounded-3 shadow" data="{{ asset('/storage/documents/' . $noteDetails->note_file) }}"
                 type="application/pdf" width="100%" height="1000px">
             </object>
         </div>
-        <div class="text-center mt-2">
+        <div class="text-center mt-3">
             <button class="rounded">
                 <a href="{{ route('notes.download', ['filename' => $noteDetails->note_file]) }}"> Download </a>
             </button>
