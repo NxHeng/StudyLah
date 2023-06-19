@@ -9,7 +9,7 @@
         <form action="{{ route('profile.update', ['id' => $profileDetails->id]) }}" method="POST">
             @csrf
             @method('PUT')
-            <div class="rounded border p-2 m-2">
+            <div class="rounded border p-2 m-2 shadow-sm">
                 <div class="text-start h2 m-2 mt-4 text-info">
                     Basic Information
                 </div>
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="rounded border m-2 p-2">
+            <div class="rounded border m-2 p-2 shadow-sm">
                 <div class="text-start h2 m-2 mt-4 text-info">
                     Contact
                 </div>
@@ -70,7 +70,7 @@
                 </div>
             </div>
 
-            <div class="rounded border m-2 p-2">
+            <div class="rounded border m-2 p-2 shadow-sm">
                 <div class="text-start h2 m-2 mt-4 text-info">
                     Education
                 </div>
@@ -91,7 +91,7 @@
             </div>
 
             <div class="text-center">
-                <input class="rounded btn btn-info btn-lg btn-block text-white" type="submit" value="Save">
+                <input class="rounded btn btn-info btn-lg btn-block text-white  shadow-sm" type="submit" value="Save">
             </div>
         </form>
     </div>

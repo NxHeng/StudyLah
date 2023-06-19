@@ -15,9 +15,8 @@
                                     class="card-img-top hp-event-img img-fluid">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event->event_title }}</h5>
-                                    <h5 class="card-title">12/12/2023</h5>
-                                    <h5 class="card-title">09:00 AM</h5>
-                                    <a href="https://www.facebook.com/">https://www.facebook.com/</a>
+                                    <h5 class="card-title">{{ $event->date }}</h5>
+                                    <a href="{{ $event->link }}" target="_blank">Click Here!</a>
                                     <p class="card-text">{{ $event->event_text }}</p>
                                 </div>
                             </div>
