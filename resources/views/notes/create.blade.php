@@ -23,7 +23,11 @@
             </div>
             <div class="form-group m-2">
                 <label for="document">Document: </label>
-                <input class="form-control" type="file" id="document" name="document"input>
+                <input class="form-control" type="file" id="document" name="document" input>
+            </div>
+            <div class="form-group m-2">
+                <label for="image">Image: </label>
+                <input class="form-control" type="file" id="image" name="image" input>
             </div>
             <input type="submit" value="Submit">
         </form>

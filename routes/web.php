@@ -41,6 +41,7 @@ Route::get('/note/create', [App\Http\Controllers\NoteController::class, 'create'
 Route::get('/note/{id}', [App\Http\Controllers\NoteController::class, 'show'])->name('notes.show');
 Route::get('/note/preview/{id}', [App\Http\Controllers\NoteController::class, 'preview'])->name('notes.preview');
 Route::get('/note/{id}/edit', [App\Http\Controllers\NoteController::class, 'edit'])->name('notes.edit');
+Route::get('/note/download/{filename}', [App\Http\Controllers\NoteController::class, 'download'])->name('notes.download');
 
 Route::post('/note', [App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
 Route::delete('/note/{id}', [App\Http\Controllers\NoteController::class, 'destroy'])->name('notes.destroy');
@@ -68,3 +69,8 @@ Route::get('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'sho
 Route::get('/profile/{id}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 
 Route::put('/profile/{id}', [App\Http\Controllers\profileController::class, 'update'])->name('profile.update');
+Route::post('/duration', [App\Http\Controllers\profileController::class, 'updateDuration'])->name('study.duration');
+
+
+//Stats
+Route::get('/stats', [App\Http\Controllers\StatsController::class, 'index'])->name('stats.index');
