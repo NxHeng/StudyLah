@@ -13,6 +13,10 @@ body {
   flex: 1;
 }
 
+.bg-color {
+  background-color: #77B5B3;
+}
+
 .footer {
   flex-shrink: 0;
 }
