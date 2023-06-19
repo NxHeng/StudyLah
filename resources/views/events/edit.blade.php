@@ -5,9 +5,7 @@
     <div class="text-center h1">
         <b>Edit Event</b>
     </div>
-
-
-    <div class="container-sm text-left border rounded p-3">
+    <div class="container-sm text-left border rounded p-3 shadow-sm">
         <form action="{{ route('events.update', ['id' => $eventDetails->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -19,21 +17,21 @@
             <div class="form-group m-2">
                 <label class="h2" for="descr">Description: </label>
                 <textarea class="form-control" id="descr" name="descr" oninput="adjustTextareaHeight(this)">{{ $eventDetails->event_text }}</textarea>
-        </div>
+            </div>
 
-        <script>
-        function adjustTextareaHeight(textarea) {
-            textarea.style.height = 'auto'; // Reset the height to auto
-            textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to match the scroll height
-        }
+            <script>
+                function adjustTextareaHeight(textarea) {
+                    textarea.style.height = 'auto'; // Reset the height to auto
+                    textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to match the scroll height
+                }
 
-        // Adjust the textarea height on page load
-        window.addEventListener('DOMContentLoaded', function() {
-            const textarea = document.getElementById('descr');
-            adjustTextareaHeight(textarea);
-        });
-        </script>
-            
+                // Adjust the textarea height on page load
+                window.addEventListener('DOMContentLoaded', function() {
+                    const textarea = document.getElementById('descr');
+                    adjustTextareaHeight(textarea);
+                });
+            </script>
+
             <div class="form-group m-2">
                 <label for="date" class="h2">Date: </label>
                 <input class="form-control" type="date" id="date" name="date" value="{{ $eventDetails->date }}">
@@ -47,11 +45,11 @@
                 <input class="form-control" type="file" id="image" name="image"input>
             </div>
             <div style="text-align: center; ">
-            <br>
-            <input class="rounded button2" type="submit" value="Save">
+                <br>
+                <input class="rounded button2" type="submit" value="Save">
             </div>
             <br>
-            </div>
+
         </form>
-    
+    </div>
 @endsection

@@ -24,8 +24,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = ModelsEvent::all();
-        $events_own = ModelsEvent::where('user_id', auth()->user()->id)->get();
+        $events = ModelsEvent::paginate(4, ['*'], 'events');
+        $events_own = ModelsEvent::where('user_id', auth()->user()->id)->paginate(4, ['*'], 'events_own');
 
         return view(
             'events.index',
@@ -112,7 +112,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect()->with("message", "Update successfully");
+        return redirect('event')->with("message", "Update successfully");
     }
 
     public function destroy($id)

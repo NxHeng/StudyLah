@@ -5,8 +5,7 @@
     <div class="text-center h1">
         Add Event
     </div>
-
-    <div class="container-sm text-left border rounded p-3">
+    <div class="container-sm text-left border rounded p-3 shadow-sm ">
         <form action="/event" method="POST" enctype="multipart/form-data" id="event-form">
             @csrf
 
