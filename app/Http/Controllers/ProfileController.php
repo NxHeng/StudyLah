@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Auth;
@@ -59,19 +60,40 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.show', ['id' => $id]);
     }
+
+    public function updateDuration(Request $request)
+    {
+        $duration = $request->input('duration');
+
+        // Update the study duration in the users table
+        $user = ModelsUser::findOrFail(Auth::user()->id);
+        $user->study_duration += $duration;
+
+        $user->save();
+
+        // You can return a response if needed
+        return response()->json(['message' => 'Study duration updated successfully']);
+    }
+
+    public function lastLogin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $user = ModelsUser::findOrFail(auth()->user()->id);
+            $user->last_login_at = Carbon::now();
+            $user->save();
+
+            // Redirect the user to the intended destination or home page
+            return redirect()->intended('/home');
+        }
+
+        // Authentication failed, redirect back with error message
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
 }
-// $table->id();
-// $table->string('name');
-// $table->string('email')->unique();
-// $table->timestamp('email_verified_at')->nullable();
-// $table->string('password');
-// $table->rememberToken();
-// $table->timestamps();
-// $table->timestamp('dob')->nullable();
-// $table->string('gender')->nullable();
-// $table->string('location')->nullable();
-// $table->string('phone')->nullable();
-// $table->string('institute')->nullable();
-// $table->string('major')->nullable();
-// $table->string('bio')->nullable();
-// $table->string('pfp')->nullable();

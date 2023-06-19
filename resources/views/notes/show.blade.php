@@ -16,6 +16,10 @@
             {{ $noteDetails->note_caption }}
         </div>
         <div>
+            <object data="{{ asset('/storage/documents/' . $noteDetails->note_file) }}" type="application/pdf" width="100%"
+                height="600px"> <a href="{{ asset('/storage/documents/' . $noteDetails->note_file) }}">test.pdf</a></object>
+        </div>
+        <div>
             <button class="button rounded">
                 <a href="{{ route('notes.edit', ['id' => $noteDetails->id]) }}"> Edit </a>
             </button>

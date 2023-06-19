@@ -39,7 +39,9 @@ Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'
 Route::get('/note', [App\Http\Controllers\NoteController::class, 'index'])->name('notes.index');
 Route::get('/note/create', [App\Http\Controllers\NoteController::class, 'create'])->name('notes.create');
 Route::get('/note/{id}', [App\Http\Controllers\NoteController::class, 'show'])->name('notes.show');
+Route::get('/note/preview/{id}', [App\Http\Controllers\NoteController::class, 'preview'])->name('notes.preview');
 Route::get('/note/{id}/edit', [App\Http\Controllers\NoteController::class, 'edit'])->name('notes.edit');
+Route::get('/note/download/{filename}', [App\Http\Controllers\NoteController::class, 'download'])->name('notes.download');
 
 Route::post('/note', [App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
 Route::delete('/note/{id}', [App\Http\Controllers\NoteController::class, 'destroy'])->name('notes.destroy');
@@ -56,6 +58,7 @@ Route::delete('/deck/{id}', [App\Http\Controllers\DeckController::class, 'destro
 //FlashCard (Cards)
 Route::get('/deck/{id}/card', [App\Http\Controllers\CardController::class, 'index'])->name('cards.index');
 Route::get('/deck/{id}/card/create', [App\Http\Controllers\CardController::class, 'create'])->name('cards.create');
+Route::get('/deck/{id}/card/study', [App\Http\Controllers\CardController::class, 'study'])->name('cards.study');
 
 Route::post('/deck/{id}/card', [App\Http\Controllers\CardController::class, 'store'])->name('cards.store');
 Route::delete('/deck/{id}/card/{card_id}', [App\Http\Controllers\CardController::class, 'destroy'])->name('cards.destroy');
@@ -66,3 +69,8 @@ Route::get('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'sho
 Route::get('/profile/{id}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 
 Route::put('/profile/{id}', [App\Http\Controllers\profileController::class, 'update'])->name('profile.update');
+Route::post('/duration', [App\Http\Controllers\profileController::class, 'updateDuration'])->name('study.duration');
+
+
+//Stats
+Route::get('/stats', [App\Http\Controllers\StatsController::class, 'index'])->name('stats.index');

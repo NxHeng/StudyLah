@@ -7,7 +7,7 @@
     </div>
 
     <div class="container-sm text-center">
-        <form action="{{ route('notes.update', ['id' => $noteDetails->id]) }}" method="POST">
+        <form action="{{ route('notes.update', ['id' => $noteDetails->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group m-2">
@@ -24,6 +24,10 @@
                 <label class="h2" for="caption">Caption: </label>
                 <textarea class="form-control" type="text" id="caption" name="caption">{{ $noteDetails->note_caption }}
                 </textarea>
+            </div>
+            <div class="form-group m-2">
+                <label class="h2" for="title">Image: </label>
+                <input class="form-control" type="file" id="image" name="image" input>
             </div>
             <input class="rounded" type="submit" value="Save">
         </form>

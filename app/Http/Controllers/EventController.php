@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event as ModelsEvent;
-use Illuminate\Console\Scheduling\Event as SchedulingEvent;
 
 class EventController extends Controller
 {

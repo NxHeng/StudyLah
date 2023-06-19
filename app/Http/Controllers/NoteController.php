@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Models\Note as ModelsNote;
 
@@ -42,6 +43,12 @@ class NoteController extends Controller
         return view('notes.show', ['noteDetails' => $noteDetails]);
     }
 
+    public function preview($id)
+    {
+        $noteDetails = ModelsNote::findOrFail($id);
+        return view('notes.preview', ['noteDetails' => $noteDetails]);
+    }
+
     public function edit($id)
     {
         $noteDetails = ModelsNote::findOrFail($id);
@@ -70,6 +77,14 @@ class NoteController extends Controller
             $note->note_file = $doc_name;
         }
 
+        if ($request->hasFile('image')) {
+            $destinationPath = 'public/images/notes';
+            $img = $request->file('image');
+            $img_name = $img->getClientOriginalName();
+            $request->file('image')->storeAs($destinationPath, $img_name);
+            $note->note_img = $img_name;
+        }
+
         $note->save();
 
         return redirect('note');
@@ -92,15 +107,32 @@ class NoteController extends Controller
         $note->note_topic = $request->input('topic');
 
         if ($request->hasFile('document')) {
-            $destinationPath = 'public/documents';
+            $destinationPath = 'public/documents/';
             $doc = $request->file('document');
             $doc_name = $doc->getClientOriginalName();
             $request->file('document')->storeAs($destinationPath, $doc_name);
             $note->note_file = $doc_name;
         }
 
+        if ($request->hasFile('image')) {
+            $destinationPath = 'public/images/notes/';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $request->file('image')->storeAs($destinationPath, $image_name);
+            $note->note_img = $image_name;
+        }
+
         $note->save();
 
         return redirect('note');
+    }
+
+    public function download($filename)
+    {
+        $path = storage_path('app/public/documents/');
+        if (file_exists($path)) {
+            return response()->download($path . $filename);
+        }
+        abort(404);
     }
 }
