@@ -24,9 +24,9 @@
                                 {{ $event->event_text }}
                             </div>
                             <div class="text-start ps-3">
-                                <a href="{{ $event->link }}">Check it out</a>
+                                <a href="{{ $event->link }}" target="_blank">Check it out</a>
                             </div>
-                            <div class="text-start m-2">
+                            <div class="text-center m-2">
                                 <img class="img-thumbnail eu-event-img"
                                     src="{{ asset('/storage/images/events/' . $event->event_image) }}" alt="event image">
                             </div>
@@ -62,7 +62,7 @@
                                 {{ $event->event_text }}
                             </div>
                             <div class="text-start ps-4">
-                                <a href="{{ $event->link }}">Your Link</a>
+                                <a href="{{ $event->link }}" target="_blank">Your Link</a>
                             </div>
                             <div class="text-center m-2">
                                 <img class="img-thumbnail eu-event-img"

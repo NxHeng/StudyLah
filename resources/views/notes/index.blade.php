@@ -32,7 +32,7 @@
                 @endforeach
             </div>
             <div class="m-3 text-center">
-                {!! $notes->links('pagination::bootstrap-4') !!}
+                {{ $notes->appends(['section1' => $notes->currentPage()])->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </section>
@@ -43,7 +43,7 @@
 
         <div class="container-sm">
             <div class="row">
-                @foreach ($notes as $note)
+                @foreach ($notes_own as $note)
                     <div class="m3 col-sm-12 col-md-6 col-lg-6">
                         <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h4">
@@ -66,7 +66,7 @@
                 @endforeach
             </div>
             <div class="m-3 text-center">
-                {!! $notes_own->links('pagination::bootstrap-4') !!}
+                {{ $notes_own->appends(['notes_own' => $notes_own->currentPage()])->links('pagination::bootstrap-4') }}
             </div>
         </div>
 

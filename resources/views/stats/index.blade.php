@@ -63,7 +63,7 @@
     <div>
 
     </div>
-    <div class="m-5 border rounded hp-zoom bg-body-tertiary">
+    {{-- <div class="m-5 border rounded hp-zoom bg-body-tertiary">
         <div class="text-center h3 p-3">
             Login Streak
         </div>
@@ -72,7 +72,7 @@
                 <canvas id="loginChart" height="400px"></canvas>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <script>
         var colors = [
@@ -118,7 +118,7 @@
             //note
             generateChart('noteCountChart', {!! $noteLabels !!}, {!! $noteCounts !!}, colors, 'pie');
             //login
-            generateChart('loginChart', {!! json_encode($dayLabels) !!}, {!! json_encode($dayData) !!}, '#77B5B3', 'bar');
+            // generateChart('loginChart', {!! json_encode($dayLabels) !!}, {!! json_encode($dayData) !!}, '#77B5B3', 'bar');
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

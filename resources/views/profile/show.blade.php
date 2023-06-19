@@ -6,7 +6,7 @@
         Profile
     </div>
     <div class="container-sm ">
-        <div class="rounded border p-2 m-2">
+        <div class="rounded border p-2 m-2 shadow-sm">
             <div class="text-start h2 m-2 mt-4 text-info">
                 Basic Information
             </div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="rounded border p-2 m-2">
+        <div class="rounded border p-2 m-2 shadow-sm">
             <div class="text-start h2 m-2 mt-4 text-info">
                 Contact
             </div>
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="rounded border p-2 m-2">
+        <div class="rounded border p-2 m-2 shadow-sm">
             <div class="text-start h2 m-2 mt-4 text-info">
                 Education
             </div>
@@ -94,7 +94,7 @@
             </div>
         </div>
         <div>
-            <button class="rounded btn btn-info btn-lg btn-block m-2">
+            <button class="rounded btn btn-info btn-lg btn-block m-2  shadow-sm">
                 <a href="{{ route('profile.edit', $profileDetails->id) }}" class="text-decoration-none text-white">Edit</a>
             </button>
         </div>

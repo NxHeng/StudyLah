@@ -25,8 +25,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = ModelsNote::paginate(4);
-        $notes_own = ModelsNote::where('user_id', auth()->user()->id)->paginate(4);
+        $notes = ModelsNote::paginate(4, ['*'], 'notes');
+        $notes_own = ModelsNote::where('user_id', auth()->user()->id)->paginate(4, ['*'], 'notes_own');
 
         return view(
             'notes.index',
