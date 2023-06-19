@@ -11,7 +11,7 @@
             <div class="row">
                 @foreach ($notes as $note)
                     <div class="m3 col-sm-12 col-md-6 col-lg-6">
-                        <div class="card m-2 p-3 ">
+                        <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h4">
                                 {{ $note->note_title }}
                             </div>
@@ -31,6 +31,9 @@
                     </div>
                 @endforeach
             </div>
+            <div class="m-3 text-center">
+                {!! $notes->links('pagination::bootstrap-4') !!}
+            </div>
         </div>
     </section>
     <section>
@@ -42,31 +45,29 @@
             <div class="row">
                 @foreach ($notes as $note)
                     <div class="m3 col-sm-12 col-md-6 col-lg-6">
-                        <div class="card m-2 p-3">
+                        <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h4">
                                 {{ $note->note_title }}
                             </div>
                             <div class="text-center">
                                 {{ $note->note_caption }}
                             </div>
-                            <<<<<<< HEAD {{-- <div>
-                                <object data="{{ asset('/storage/documents/' . $note->note_file) }}" type="application/pdf"
-                                    width="100%" height="600px"> <a
-                                        href="{{ asset('/storage/documents/' . $note->note_file) }}">test.pdf</a></object>
-                            </div> --}}=======<div class="text-center m-2">
+                            <div class="text-center m-2">
                                 <img class="img-thumbnail eu-event-img"
                                     src="{{ asset('/storage/images/notes/' . $note->note_img) }}" alt="event image">
-                        </div>
-                        >>>>>>> 591f7b1820a540288d03d33fb828e281e6b4c42c
-                        <div class="text-center mt-2">
-                            <button class="rounded">
-                                <a href="{{ route('notes.show', ['id' => $note->id]) }}"> Show </a>
-                            </button>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button class="rounded">
+                                    <a href="{{ route('notes.show', ['id' => $note->id]) }}"> Show </a>
+                                </button>
+                            </div>
                         </div>
                     </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
+            <div class="m-3 text-center">
+                {!! $notes->links('pagination::bootstrap-4') !!}
+            </div>
         </div>
 
         <div class="text-center m-5">

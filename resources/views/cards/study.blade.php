@@ -12,9 +12,9 @@
                 <div class="carousel-item hp-zoom @if ($key == 0) active @endif">
                     {{-- something like this la, i cannot do XD --}}
                     <div class="d-flex justify-content-center">
-                        <div class="card m-2 w-50 fc-study-card">
+                        <div class="card m-2 w-50 fc-study-card-title">
                             <div class="h1 text-center">{{ $card->card_front }}</div>
-                            <div class="h1 text-center">{{ $card->card_back }}</div>
+                            <!-- <div class="h1 text-center">{{ $card->card_back }}</div> -->
                         </div>
                     </div>
                 </div>
@@ -49,14 +49,38 @@
         document.addEventListener("DOMContentLoaded", () => {
             const start = new Date().getTime();
             const studyDurationElement = document.getElementById('studyDuration');
-            let totalDuration = parseFloat(studyDurationElement.textContent) || 0;
+            let totalDuration = parseFloat(studyDurationElement.value) || 0;
+
+            const carousel = new bootstrap.Carousel(document.getElementById('carouselEvent'), {
+                interval: false
+            });
+
+            const flipCard = document.querySelector('.fc-study-card');
+            const cardFrontElement = flipCard.querySelector('.card__face--front');
+            const cardBackElement = flipCard.querySelector('.card__face--back');
+            let currentIndex = 0;
+
+            carousel.on('slide.bs.carousel', (event) => {
+                const nextIndex = event.to;
+                currentIndex = nextIndex;
+                const nextCard = document.querySelector(`#carouselEvent .carousel-item:nth-child(${nextIndex + 1}) .fc-study-card-title`);
+                const nextCardFront = nextCard.querySelector('.h1');
+
+                cardFrontElement.textContent = nextCardFront.textContent;
+                cardBackElement.textContent = '{{ $cards[0]->card_back }}';
+            });
+
+            const nextButton = document.querySelector('[data-bs-slide="next"]');
+            nextButton.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % {{ count($cards) }};
+                carousel.to(nextIndex);
+            });
 
             window.addEventListener("beforeunload", () => {
                 const end = new Date().getTime();
                 const currentDuration = (end - start) / 1000;
                 totalDuration += currentDuration;
 
-                // Send AJAX request to update the total study duration in the database
                 const url = '/duration';
                 const data = {
                     duration: totalDuration
@@ -66,7 +90,7 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Add Laravel CSRF token
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
                         },
                         body: JSON.stringify(data)
                     })

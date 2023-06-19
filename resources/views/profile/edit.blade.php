@@ -81,7 +81,7 @@
                             value="{{ $profileDetails->major }}">
                     </div>
                 </div>
-                <div class="form-group row m-2 bg">
+                <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="institute">Institute:</label>
                     <div class="col-md-10">
                         <input class="form-control h5" type="text" id="institute" name="institute"
