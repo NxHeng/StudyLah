@@ -17,9 +17,21 @@
                 <label for="descr">Event Description: </label>
                 <textarea class="form-control" type="text" id="descr" name="descr"></textarea>
             </div>
+            <div>
+                <label for="descr">Event Date: </label>
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+            <div>
+                <label for="descr">Event Profile Link: </label>
+                <textarea class="form-control" type="text" id="link" name="link"></textarea>
+            </div>
             <div class="form-group m-2">
                 <label for="image">Event Image: </label>
                 <input class="form-control" type="file" id="image" name="image"input>
+            </div>
+            
+            <div>
+
             </div>
             <input type="submit" value="Submit">
         </form>

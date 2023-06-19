@@ -39,10 +39,20 @@
                     <div class="m3 col-sm-12 col-md-6 col-lg-6">
                         <div class="card m-2 p-3">
                             <div class="text-center h4">
-                                Title: {{ $event->event_title }}
+                                <b>{{ $event->event_title }}</b>
                             </div>
                             <div class="text-center">
-                                Description: {{ $event->event_text }}
+                                {{ $event->event_text }}
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div class="text-center">
+                                Event Date :<br>
+                                <b>{{ $event->date }}</b>
+                            </div>
+                            <div class="text-center">
+                                <a href="{{ $event->link }}">Event Link</a>
                             </div>
                             <div class="text-center m-2">
                                 <img class="img-thumbnail eu-event-img"
