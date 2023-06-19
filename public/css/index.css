@@ -120,15 +120,17 @@ body {
   backface-visibility: hidden;
 }
 
-.card__face--front {
+.card__front {
   background: crimson;
   border-width: 3px;
   transform: rotateY(0deg);
+  z-index: 2;
 }
 
-.card__face--back {
+.card__back {
   background: slateblue;
   transform: rotateY(180deg);
+  z-index: 1;
 }
 
 /* Welcome Page */
