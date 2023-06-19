@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class = "d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class = "card-container">
     <div id="carouselEvent" class="carousel carousel-dark slide">
         <div class="carousel-inner">
             {{-- $cards is the list of cards
@@ -11,10 +13,10 @@
             @foreach ($cards as $key => $card)
                 <div class="carousel-item hp-zoom @if ($key == 0) active @endif">
                     {{-- something like this la, i cannot do XD --}}
-                    <div class="d-flex justify-content-center">
-                        <div class="card m-2 w-50 fc-study-card-title">
-                            <div class="h1 text-center">{{ $card->card_front }}</div>
-                            <!-- <div class="h1 text-center">{{ $card->card_back }}</div> -->
+                    <div class="d-flex justify-content-center align-items-center" style="height:100%">
+                        <div class="card m-2 w-75 fc-study-card">
+                            <div class="card-face card-front h1 text center">{{ $card->card_front }}</div>
+                            <div class="card-face card-back h1 text-center d-none ">{{ $card->card_back }}</div>
                         </div>
                     </div>
                 </div>
@@ -33,18 +35,11 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    {{-- Copy pasted from https://codepen.io/mondal10/pen/WNNEvjV --}}
-    {{-- example of a flip card --}}
-    <div class="text-center">
-        <div class="scene scene--card @if ($key == 0) active @endif">
-            <div class="fc-study-card ">
-                <div class="card__face card__face--front">{{ $card->card_front }}</div>
-                <div class="card__face card__face--back">{{ $card->card_back }}</div>
-            </div>
-        </div>
-    </div>
+   
     <input type="hidden" id="studyDuration" value="{{ $user->study_duration }}">
-<!--  -->
+</div>
+</div>
+<!--javascript -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const start = new Date().getTime();
@@ -56,24 +51,31 @@
             });
 
             const flipCard = document.querySelector('.fc-study-card');
-            const cardFrontElement = flipCard.querySelector('.card__face--front');
-            const cardBackElement = flipCard.querySelector('.card__face--back');
+            const cardFrontElement = flipCard.querySelector('.card-front');
+            const cardBackElement = flipCard.querySelector('.card-back');
             let currentIndex = 0;
 
             carousel.on('slide.bs.carousel', (event) => {
                 const nextIndex = event.to;
                 currentIndex = nextIndex;
-                const nextCard = document.querySelector(`#carouselEvent .carousel-item:nth-child(${nextIndex + 1}) .fc-study-card-title`);
-                const nextCardFront = nextCard.querySelector('.h1');
+                const nextCard = document.querySelector(`#carouselEvent .carousel-item:nth-child(${nextIndex + 1}) .fc-study-card`);
+                const nextCardFront = nextCard.querySelector('.card-front');
+                const nextCardBack = nextCard.querySelector('.card-back');
 
                 cardFrontElement.textContent = nextCardFront.textContent;
-                cardBackElement.textContent = '{{ $cards[0]->card_back }}';
+                cardBackElement.textContent = nextCardBack.textContent;
             });
+
 
             const nextButton = document.querySelector('[data-bs-slide="next"]');
             nextButton.addEventListener('click', () => {
                 const nextIndex = (currentIndex + 1) % {{ count($cards) }};
                 carousel.to(nextIndex);
+            });
+
+            flipCard.addEventListener('click', () => {
+                cardFrontElement.classList.toggle('d-none');
+                cardBackElement.classList('d-none');
             });
 
             window.addEventListener("beforeunload", () => {
