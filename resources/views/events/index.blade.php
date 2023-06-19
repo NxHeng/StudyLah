@@ -4,7 +4,7 @@
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
     <section>
         <div class="text-center h1">
-            EventUp
+            <b>EventUp</b>
         </div>
 
         <div class="container-sm">
@@ -13,10 +13,10 @@
                     <div class="m3 col-sm-12 col-md-6 col-lg-6">
                         <div class="card m-2 p-3 ">
                             <div class="text-center h4">
-                                Title: {{ $event->event_title }}
+                                <b>{{ $event->event_title }}</b>
                             </div>
                             <div class="text-center">
-                                Description: {{ $event->event_text }}
+                                {{ $event->event_text }}
                             </div>
                             <div class="text-center m-2">
                                 <img class="img-thumbnail eu-event-img"
@@ -30,7 +30,7 @@
     </section>
     <section>
         <div class="text-center h1 mt-4">
-            Your Events
+            <b> Events </b>
         </div>
 
         <div class="container-sm">
@@ -58,10 +58,12 @@
                                 <img class="img-thumbnail eu-event-img"
                                     src="{{ asset('/storage/images/events/' . $event->event_image) }}" alt="event image">
                             </div>
-                            <div class="mt-2">
-                                <button class="rounded">
-                                    <a href="{{ route('events.show', ['id' => $event->id]) }}"> Show </a>
+                            <div class="mt-2 text-center m-5" >
+                            <a href="{{ route('events.show', ['id' => $event->id]) }}" style="text-decoration: none; color: black;">
+                                <button class="rounded button2">
+                                Show 
                                 </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -70,9 +72,11 @@
         </div>
 
         <div class="text-center m-5">
-            <button class="button rounded">
-                <a href="{{ route('events.create') }}"> Add Event </a>
+        <a href="{{ route('events.create') }}" style="color: black; text-decoration: none; ">  
+            <button class="button2">
+            Add Event
             </button>
+        </a>
         </div>
     </section>
 @endsection

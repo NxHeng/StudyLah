@@ -2,7 +2,8 @@
 
 @section('content')
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
-    <div class="container-sm text-center">
+    <div class="container-sm text-left border rounded p-3">
+    <div class="container-sm text-left">
         <div class="h2">
             Event Title
         </div>
@@ -34,17 +35,20 @@
             <img class="img-thumbnail w-50" src="{{ asset('/storage/images/events/' . $eventDetails->event_image) }}"
                 alt="event image">
         </div>
-        <div>
-            <button class="button rounded">
-                <a href="{{ route('events.edit', ['id' => $eventDetails->id]) }}"> Edit </a>
+        <div style="text-align: center" ;>
+        <a href="{{ route('events.edit', ['id' => $eventDetails->id]) }}" style="color: black; text-decoration: none";>
+            <button class="button2" >
+                 Edit 
             </button>
+            </a>
         </div>
-        <div class="m-2">
+        <div class="m-2" style="text-align: center";>
             <form action="/event/{{ $eventDetails->id }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <input class="button rounded" type="submit" value="Delete Event">
+                <input class="button2 bg-danger" type="submit" value="Delete Event">
             </form>
         </div>
     </div>
+</div>
 @endsection

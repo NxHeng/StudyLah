@@ -53,14 +53,53 @@ class EventController extends Controller
         return view('events.create');
     }
 
+    // public function store(Request $request)
+    // {
+    //     $event = new ModelsEvent();
+
+    //     $event->event_title = request('title');
+    //     $event->event_text = request('descr');
+    //     $event->date = request('date');
+    //     $event->link = request('link');
+    //     $event->user_id = auth()->user()->id;
+
+    //     if ($request->hasFile('image')) {
+    //         $destinationPath = 'public/images/events';
+    //         $image = $request->file('image');
+    //         $image_name = $image->getClientOriginalName();
+    //         $request->file('image')->storeAs($destinationPath, $image_name);
+    //         $event->event_image = $image_name;
+    //     }
+
+    //     $event->save();
+
+    //     return redirect('event');
+    // }
+
     public function store(Request $request)
     {
-        $event = new ModelsEvent();
+        // log($request);
 
-        $event->event_title = request('title');
-        $event->event_text = request('descr');
-        $event->date = request('date');
-        $event->link = request('link');
+        $request->validate([
+            "title" => ['required'],
+            "descr" => ['required'],
+            "date" => ['required'],
+            "link" => ['required'],
+            "image" => ['required'],
+        ]);
+
+        $title = $request->input('title');
+        $descr = $request->input('descr');
+        $date = $request->input('date');
+        $link = $request->input('link');
+
+
+
+        $event = new ModelsEvent();
+        $event->event_title = $title;
+        $event->event_text = $descr;
+        $event->date = $date;
+        $event->link = $link;
         $event->user_id = auth()->user()->id;
 
         if ($request->hasFile('image')) {
@@ -73,7 +112,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('event');
+        return redirect()->with("message", "Update successfully");
     }
 
     public function destroy($id)
@@ -86,6 +125,7 @@ class EventController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $event = ModelsEvent::findOrFail($id);
 
         $event->event_title = $request->input('title');

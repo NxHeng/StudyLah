@@ -1,6 +1,6 @@
 import './bootstrap';
 
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
 
 //flashcards
 var cards = document.querySelectorAll('.fc-study-card');
