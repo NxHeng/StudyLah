@@ -63,11 +63,11 @@ body {
 /* FlashCard fc-{name} */
 
 .scene {
-  padding-left: 300px;
   padding-right: 300px;
+  padding-left: 300px;
   display: inline-block;
   width: 100%;
-  height: 260px;
+  height: 350px;
 /*   border: 1px solid #CCC; */
   margin: 40px 0;
   perspective: 600px;
@@ -95,9 +95,8 @@ body {
   color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
   backface-visibility: hidden;
-  vertical-align: ;
 }
 
 .card__face--front {

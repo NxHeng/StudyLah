@@ -80,5 +80,17 @@
                     });
             });
         });
+
+        // $("#card-flip").flip();
+
+        // function showIndex() {
+        //     $('.cards').slick('slickGoTo', 3);
+        //     var currentSlide = $('.cards').slick('slickCurrentSlide');
+        // }
     </script>
 @endsection
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.20/dist/jquery.flip.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
