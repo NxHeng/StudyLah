@@ -2,36 +2,73 @@
 
 @section('content')
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
-
-
-
-    <div class="container-sm text-left ">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-left">Create Your New Event</h1>
-            </div>
-        </div>
-        <form action="/event" method="POST" enctype="multipart/form-data">
+    <div class="text-center h1">
+        Add Event
+    </div>
+    <div class="container-sm text-left border rounded p-3 shadow-sm ">
+        <form action="/event" method="POST" enctype="multipart/form-data" id="event-form">
             @csrf
-            <div class="form-group row m-2 border">
-                <label for="title" class="col-sm-2 col-form-label">Event Title:</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="text" id="title" name="title"
-                        placeholder="Give your event a title!"><br>
-                </div>
-                <label for="descr" class="col-sm-2 col-form-label">Event Description:</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" type="text" id="descr" name="descr"
-                        placeholder="Tell us what is your event about!"></textarea><br>
-                </div>
-                <label for="image" class="col-sm-2 col-form-label text-left">Event Image:</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="file" id="image" name="image"><br>
-                </div>
+
+            <div>
+                @if (session('message'))
+                    <p class="alert alert-success">{{ session('message') }}</p>
+                @endif
+
+                @if ($errors->any())
+                    <ul class="alert alert-warning">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
-            <br>
-            <div class="text-center">
-                <input type="submit" value="Create Event" class="btn btn-primary" style="background-color: #77b5b3;">
+
+            <div class="form-group m-2">
+                <label for="title"; class="h2">Event Title: </label>
+                <input class="form-control" type="text" id="title" name="title">
+            </div>
+            <div class="form-group m-2">
+                <label for="descr"; class="h2">Event Description:</label>
+                <textarea class="form-control" id="descr" name="descr" oninput="adjustTextareaHeight(this)"></textarea>
+            </div>
+
+            <script>
+                function adjustTextareaHeight(textarea) {
+                    textarea.style.height = 'auto'; // Reset the height to auto
+                    textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to match the scroll height
+                }
+
+                // Adjust the textarea height on page load
+                window.addEventListener('DOMContentLoaded', function() {
+                    const textarea = document.getElementById('descr');
+                    adjustTextareaHeight(textarea);
+                });
+
+                document.getElementById("event-form").addEventListener('submit', (e) => {
+                    // e.preventDefault();
+                })
+            </script>
+
+            <div>
+                <label for="descr"; class="h2">Event Date: </label>
+                <input type="date" class="form-control" id="date" name="date">
+                <br>
+            </div>
+            <div>
+                <label for="descr"; class="h2">Event Profile Link: </label>
+                <textarea class="form-control" type="text" id="link" name="link"></textarea>
+            </div>
+            <div class="form-group m-2">
+                <label for="image"; class="h2">Event Image: </label>
+                <input class="form-control" type="file" id="image" name="image"input>
+            </div>
+
+            <div>
+
+            </div>
+            <div style="text-align: center">
+                <br>
+                <input type="submit" value="Submit" class="button2">
             </div>
         </form>
     </div>
