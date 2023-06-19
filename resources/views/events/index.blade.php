@@ -10,7 +10,7 @@
         <div class="container-sm">
             <div class="row">
                 @foreach ($events as $event)
-                    <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                         <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h2 ps-3">
                                 <b>{{ $event->event_title }}</b>
@@ -48,7 +48,7 @@
         <div class="container-sm">
             <div class="row">
                 @foreach ($events_own as $event)
-                    <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
                         <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h2 ps-4">
                                 <b>{{ $event->event_title }}</b>

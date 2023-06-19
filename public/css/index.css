@@ -62,48 +62,28 @@ body {
 
 /* FlashCard fc-{name} */
 
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-
-.fc-form-control-lg{
-  height: 90px;
-  border-width: 3px;
-  font-size: 50px;
-}
-
-/* This container is needed to position the front and back side */
 .scene {
-  display: inline-flex;
-  width:100%;
-  height: 100%; 
-  width: 200px;
+  padding-left: 300px;
+  padding-right: 300px;
+  display: inline-block;
+  width: 100%;
   height: 260px;
 /*   border: 1px solid #CCC; */
   margin: 40px 0;
   perspective: 600px;
 }
-.scene--card{
-  position:relative; 
-  height:auto;
-  width: 100%;
-  transform-style: preserve-3d;
-}
 
-.fc-study-card {
-  /* position: absolute; */
+.card {
+  position: relative;
   width: 100%;
   height: 100%;
   cursor: pointer;
   transform-style: preserve-3d;
   transform-origin: center right;
-  transition: transform 1s;}
+  transition: transform 1s;
+}
 
-.fc-study-card.is-flipped {
+.card.is-flipped {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
@@ -112,26 +92,30 @@ body {
   width: 100%;
   height: 100%;
   line-height: 260px;
-  color: black;
-  border-width: 3px;
+  color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   backface-visibility: hidden;
+  vertical-align: ;
 }
 
-.card__front {
+.card__face--front {
   background: crimson;
-  border-width: 3px;
-  transform: rotateY(0deg);
-  z-index: 2;
 }
 
-.card__back {
+.card__face--back {
   background: slateblue;
   transform: rotateY(180deg);
-  z-index: 1;
 }
+
+.card-word-wrap {
+  padding-top: 7%;
+  line-height: 1.5em;
+  height: 100%;       /* height is 2x line-height, so two lines will display */
+  overflow: hidden;  /* prevents extra lines from being visible */
+}
+
 
 /* Welcome Page */
 .wp-carousel {

@@ -14,7 +14,7 @@
         Stats
     </div>
     <div class="row container-fluid ps-5">
-        <div class="col-lg-4 col-sm-12 m-2 border rounded hp-zoom bg-body-tertiary">
+        <div class="col-lg-4 col-sm-12 m-2 border rounded hp-zoom bg-body-tertiary shadow-sm">
             <div class="text-center h3 p-3">
                 Deck Distribution
             </div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-12 m-2 border rounded hp-zoom bg-body-tertiary">
+        <div class="col-lg-4 col-sm-12 m-2 border rounded hp-zoom bg-body-tertiary shadow-sm">
             <div class="text-center h3 p-3">
                 Note Distribution
             </div>
@@ -35,23 +35,23 @@
             </div>
         </div>
         <div class="my-auto mx-auto col-lg-3 col-sm-12">
-            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-tertiary">
+            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-tertiary shadow-sm">
                 <span class="h4 my-auto">Total Decks Created: </span>
                 <span class="display-6 my-auto text-primary mx-2">{{ $totalDecks }}</span>
             </div>
-            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-secondary">
+            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-secondary shadow-sm">
                 <span class="h4 my-auto">Total Cards Created: </span>
                 <span class="display-6 my-auto text-primary mx-2">{{ $totalCards }}</span>
             </div>
-            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-tertiary">
+            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-tertiary shadow-sm">
                 <span class="h4 my-auto">Total Shared Notes: </span>
                 <span class="display-6 my-auto text-primary mx-2">{{ $totalNotes }}</span>
             </div>
-            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-secondary">
+            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-secondary shadow-sm">
                 <span class="h4 my-auto">Total Shared Events: </span>
                 <span class="display-6 my-auto text-primary mx-2">{{ $totalEvents }}</span>
             </div>
-            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-tertiary">
+            <div class="text-center border rounded m-1 p-3 hp-zoom bg-body-tertiary shadow-sm">
                 <div class="h4 my-auto">Total Study Time: </div>
                 <span class="display-6 my-auto text-primary mx-2">{{ $hours }}</span>
                 <span class="h4 my-auto">hrs</span>

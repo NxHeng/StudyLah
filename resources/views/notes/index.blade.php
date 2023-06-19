@@ -10,7 +10,7 @@
         <div class="container-sm">
             <div class="row">
                 @foreach ($notes as $note)
-                    <div class="m3 col-sm-12 col-md-6 col-lg-6">
+                    <div class="mb-3 col-sm-12 col-md-6 col-lg-6">
                         <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h4">
                                 {{ $note->note_title }}
@@ -44,7 +44,7 @@
         <div class="container-sm">
             <div class="row">
                 @foreach ($notes_own as $note)
-                    <div class="m3 col-sm-12 col-md-6 col-lg-6">
+                    <div class="mb-3 col-sm-12 col-md-6 col-lg-6">
                         <div class="card m-2 p-3 hp-zoom shadow-sm">
                             <div class="text-center h4">
                                 {{ $note->note_title }}

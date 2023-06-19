@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class = "d-flex justify-content-center align-items-center" style="height: 100vh;">
-<div class = "card-container">
+    <div class="text-center h1 m-4">
+        {{ $deck->deck_name }}
+    </div>
     <div id="carouselEvent" class="carousel carousel-dark slide">
         <div class="carousel-inner">
             {{-- $cards is the list of cards
@@ -13,10 +14,14 @@
             @foreach ($cards as $key => $card)
                 <div class="carousel-item hp-zoom @if ($key == 0) active @endif">
                     {{-- something like this la, i cannot do XD --}}
-                    <div class="d-flex justify-content-center align-items-center" style="height:100%">
-                        <div class="card m-2 w-75 fc-study-card">
-                            <div class="card-face card-front h1 text center">{{ $card->card_front }}</div>
-                            <div class="card-face card-back h1 text-center d-none ">{{ $card->card_back }}</div>
+                    <div class="scene scene--card">
+                        <div class="card border">
+                            <div class="card__face card__face--front">{{ $card->card_front }}</div>
+                            <div class="card__face card__face--back card-word-wrap">
+                                <div class=" my-auto">
+                                    {{ $card->card_back }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,64 +40,35 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-   
     <input type="hidden" id="studyDuration" value="{{ $user->study_duration }}">
-</div>
-</div>
-<!--javascript -->
+
     <script>
+        var cards = document.querySelectorAll('.card');
+
+        [...cards].forEach((card) => {
+            card.addEventListener('click', function() {
+                card.classList.toggle('is-flipped');
+            });
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
             const start = new Date().getTime();
             const studyDurationElement = document.getElementById('studyDuration');
-            let totalDuration = parseFloat(studyDurationElement.value) || 0;
-
-            const carousel = new bootstrap.Carousel(document.getElementById('carouselEvent'), {
-                interval: false
-            });
-
-            const flipCard = document.querySelector('.fc-study-card');
-            const cardFrontElement = flipCard.querySelector('.card-front');
-            const cardBackElement = flipCard.querySelector('.card-back');
-            let currentIndex = 0;
-
-            carousel.on('slide.bs.carousel', (event) => {
-                const nextIndex = event.to;
-                currentIndex = nextIndex;
-                const nextCard = document.querySelector(`#carouselEvent .carousel-item:nth-child(${nextIndex + 1}) .fc-study-card`);
-                const nextCardFront = nextCard.querySelector('.card-front');
-                const nextCardBack = nextCard.querySelector('.card-back');
-
-                cardFrontElement.textContent = nextCardFront.textContent;
-                cardBackElement.textContent = nextCardBack.textContent;
-            });
-
-
-            const nextButton = document.querySelector('[data-bs-slide="next"]');
-            nextButton.addEventListener('click', () => {
-                const nextIndex = (currentIndex + 1) % {{ count($cards) }};
-                carousel.to(nextIndex);
-            });
-
-            flipCard.addEventListener('click', () => {
-                cardFrontElement.classList.toggle('d-none');
-                cardBackElement.classList('d-none');
-            });
-
+            let totalDuration = parseFloat(studyDurationElement.textContent) || 0;
             window.addEventListener("beforeunload", () => {
                 const end = new Date().getTime();
                 const currentDuration = (end - start) / 1000;
                 totalDuration += currentDuration;
-
+                // Send AJAX request to update the total study duration in the database
                 const url = '/duration';
                 const data = {
                     duration: totalDuration
                 };
-
                 fetch(url, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Add Laravel CSRF token
                         },
                         body: JSON.stringify(data)
                     })
