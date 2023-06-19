@@ -48,7 +48,7 @@
                         <li class="nav-item h5">
                             <a class="nav-link" href="{{ route('decks.index') }}">FlashCards</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item h5">
                             <a class="nav-link" href="{{ route('stats.index') }}">Stats</a>
                         </li>
                     </ul>
