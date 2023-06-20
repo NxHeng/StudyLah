@@ -15,9 +15,29 @@
             </object>
         </div>
         <div class="text-center mt-3">
-            <button class="rounded">
-                <a href="{{ route('notes.download', ['filename' => $noteDetails->note_file]) }}"> Download </a>
-            </button>
+            <a href="{{ route('notes.download', ['filename' => $noteDetails->note_file]) }}">
+                <button class="button rounded">
+                    Download
+                </button>
+            </a>
         </div>
     </div>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #77b5b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 @endsection

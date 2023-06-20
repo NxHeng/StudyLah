@@ -23,9 +23,11 @@
                                     src="{{ asset('/storage/images/notes/' . $note->note_img) }}" alt="event image">
                             </div>
                             <div class="text-center mt-2">
-                                <button class="rounded">
-                                    <a href="{{ route('notes.preview', ['id' => $note->id]) }}"> View </a>
-                                </button>
+                                <a href="{{ route('notes.preview', ['id' => $note->id]) }}">
+                                    <button class="button rounded">
+                                        View
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -57,9 +59,11 @@
                                     src="{{ asset('/storage/images/notes/' . $note->note_img) }}" alt="event image">
                             </div>
                             <div class="text-center mt-2">
-                                <button class="rounded">
-                                    <a href="{{ route('notes.show', ['id' => $note->id]) }}"> Show </a>
-                                </button>
+                                <a href="{{ route('notes.show', ['id' => $note->id]) }}">
+                                    <button class="button rounded">
+                                        Show
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -71,9 +75,28 @@
         </div>
 
         <div class="text-center m-5">
-            <button class="button rounded">
+            <button class="button rounded hp-zoom">
                 <a href="{{ route('notes.create') }}"> Share Note </a>
             </button>
         </div>
     </section>
+
+    <style>
+        .button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #77b5b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 @endsection

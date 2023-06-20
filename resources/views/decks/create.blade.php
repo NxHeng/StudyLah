@@ -10,13 +10,13 @@
     <div class="container-sm text-center">
         <form action="/deck" method="POST">
             @csrf
-            <div class="form-group m-2">
-                <label for="name">Deck Name: </label>
-                <input class="form-control fc-form-control-lg" type="text" id="name" name="name">
+            <div class="form-group m-3">
+                <label class="h2" for="name">Deck Name: </label>
+                <input class="form-control fc-form-control-lg fs-1 shadow-sm" type="text" id="name" name="name">
             </div>
-            <div class="form-group m-2">
-                <label for="topic">Deck Topic: </label>
-                <input class="form-control fc-form-control-lg" type="text" id="topic" name="topic">
+            <div class="form-group m-3">
+                <label class="h2" for="topic">Deck Topic: </label>
+                <input class="form-control fc-form-control-lg fs-1 shadow-sm" type="text" id="topic" name="topic">
             </div>
             <input type="submit" value="Add" class="rounded">
         </form>

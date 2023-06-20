@@ -3,15 +3,9 @@
 @section('content')
     {{-- Content Starts Here. Header, Navbar, Footer in /layouts/app.blade.php --}}
     {{-- Cards --}}
-    <div class="text-center h1" style="font-family: 'Arial', sans-serif; color: black; background-color: #f9f9f9; letter-spacing: 2px; text-shadow: 1px 1px 1px #000000;">
+    <div class="text-center h1"
+        style="font-family: 'Arial', sans-serif; color: black; background-color: #f9f9f9; letter-spacing: 2px; text-shadow: 1px 1px 1px #000000;">
         {{ $deck->deck_name }}
-    </div>
-    <div class="text-center">
-        <a href="{{ route('cards.study', ['id' => $deck->id]) }}">
-            <button class="rounded">
-                Study
-            </button>
-        </a>
     </div>
     <div class="container-sm">
         @foreach ($cards as $card)
@@ -40,8 +34,15 @@
             </div>
         @endforeach
     </div>
+    <div class="text-center m-3">
+        <a href="{{ route('cards.study', ['id' => $deck->id]) }}">
+            <button class="rounded">
+                Study
+            </button>
+        </a>
+    </div>
 
-    <div class="text-center">
+    <div class="text-center m-3">
         <a href="{{ route('cards.create', ['id' => $deck->id]) }}">
             <button class="rounded">
                 Add New Card
@@ -59,18 +60,18 @@
         padding: 10px 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
-    
+
     .rounded:hover {
         background-color: #30D5C8;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     }
-    
+
     .rounded:active {
         transform: scale(0.95);
     }
 
     .card {
         flex: 1;
-        min-width: 0; 
+        min-width: 0;
     }
 </style>

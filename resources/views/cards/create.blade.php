@@ -15,12 +15,12 @@
         <form action="/deck/{{ $deck->id }}/card" method="POST">
             @csrf
             <div class="form-group m-2">
-                <label for="front">Front: </label>
-                <textarea class="form-control fc-form-control-lg" type="text" id="front" name="front"></textarea>
+                <label for="front h2">Front: </label>
+                <textarea class="form-control fc-form-control-lg shadow-sm fs-2" type="text" id="front" name="front"></textarea>
             </div>
             <div class="form-group m-2">
-                <label for="back">Back: </label>
-                <textarea class="form-control fc-form-control-lg" type="text" id="back" name="back"></textarea>
+                <label for="back h2">Back: </label>
+                <textarea class="form-control fc-form-control-lg shadow-sm fs-2" type="text" id="back" name="back"></textarea>
             </div>
             <input type="submit" value="Add" class="rounded">
         </form>
