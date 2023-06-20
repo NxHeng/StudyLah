@@ -47,7 +47,7 @@
             {{-- @for ($i = 0; $i < 2; $i++) --}}
             <div class="row d-flex justify-content-center">
                 @for ($j = 0; $j < 8; $j++)
-                    <div class="col-12 col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-12 col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-3">
                         <div class="card mb-3 hp-card-height shadow hp-zoom">
                             <div class="row">
                                 <div class="col-md-5">

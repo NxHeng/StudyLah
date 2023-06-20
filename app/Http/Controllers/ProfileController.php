@@ -47,7 +47,7 @@ class ProfileController extends Controller
         $user = ModelsUser::findOrFail($id);
 
         $user->name = $request->input('name');
-        // $user->event_text = $request->input('dob');
+        $user->dob = $request->input('date');
         $user->gender = $request->input('gender');
         $user->location = $request->input('location');
         $user->phone = $request->input('phone');

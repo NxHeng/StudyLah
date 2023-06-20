@@ -15,20 +15,20 @@
                 </div>
                 <div class="form-group row mx-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="name">Username:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2">
                         <input class="form-control h4" type="text" id="name" name="name"
                             value="{{ $profileDetails->name }}">
                     </div>
                 </div>
                 <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="bio">Bio:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2">
                         <textarea class="form-control h5" type="text" id="bio" name="bio">{{ $profileDetails->bio }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="gender">Gender:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2">
                         <select class="form-control h5" id="gender" name="gender">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -37,9 +37,10 @@
                     </div>
                 </div>
                 <div class="form-group row m-2">
-                    <label class="h4 col-md-2 py-3 text-md-end" for="dob">Date of Birth:</label>
-                    <div class="col-md-10">
-                        <input class="form-control h5" type="date" id="dob" name="dob" value="">
+                    <label class="h4 col-md-2 py-3 text-md-end" for="date">Date of Birth:</label>
+                    <div class="col-md-10 p-2">
+                        <input class="form-control h5" type="date" id="date" name="date"
+                            value="{{ $profileDetails->dob }}">
                     </div>
                 </div>
             </div>
@@ -56,14 +57,14 @@
                 </div>
                 <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="phone">Phone:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2">
                         <input class="form-control h5" type="text" id="phone" name="phone"
                             value="{{ $profileDetails->phone }}">
                     </div>
                 </div>
                 <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="location">Location:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2 p-2">
                         <input class="form-control h5" type="text" id="location" name="location"
                             value="{{ $profileDetails->location }}">
                     </div>
@@ -76,14 +77,14 @@
                 </div>
                 <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="major">Major:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2">
                         <input class="form-control h5" type="text" id="major" name="major"
                             value="{{ $profileDetails->major }}">
                     </div>
                 </div>
                 <div class="form-group row m-2">
                     <label class="h4 col-md-2 py-3 text-md-end" for="institute">Institute:</label>
-                    <div class="col-md-10">
+                    <div class="col-md-10 p-2">
                         <input class="form-control h5" type="text" id="institute" name="institute"
                             value="{{ $profileDetails->institute }}">
                     </div>

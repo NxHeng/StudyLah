@@ -39,7 +39,7 @@
                     Date of Birth:
                 </div>
                 <div class="h5 m-2">
-                    {{ $profileDetails->dob }}
+                    {{ \Carbon\Carbon::parse($profileDetails->dob)->format('d/m/Y') }}
                 </div>
             </div>
         </div>
